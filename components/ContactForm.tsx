@@ -40,58 +40,69 @@ export default function ContactForm() {
   }
 
   return (
-    <div className=" mx-28 col-span-3 mt-8">
+    <div className="">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <Label htmlFor="name">Name</Label>
-          <Input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+        <div className="grid grid-cols-2 gap-6 w-full">
+          <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-1">
+              <Label htmlFor="name">Nom Prénom</Label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="border-gray-700"
+              />
+            </div>
+            <div className="flex flex-col space-y-1">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="border-gray-700"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-1">
+              <Label htmlFor="subject">Objet</Label>
+              <Input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className="border-gray-700"
+              />
+            </div>
+            <div className="flex flex-col space-y-1">
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="h-32 border-gray-700"
+                
+              />
+            </div>
+            <Button className="w-20" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "En cours..." : "Envoyer"}
+            </Button>
+          </div>
         </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="subject">Subject</Label>
-          <Input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="message">Message</Label>
-          <Textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send"}
-        </Button>
       </form>
       {submitSuccess && (
         <div className="mt-4 p-4 bg-green-100 text-green-700 rounded">
-          Thank you for your message. We&apos;ll get back to you soon!
+          Merci pour votre message ! Je vous répondrai dès que possible.
         </div>
       )}
     </div>

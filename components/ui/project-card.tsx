@@ -29,13 +29,11 @@ export default function ProjectCard({
       <CardHeader>
         <CardTitle className="font-bold">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 aspect-video relative">
         <Image
           src={imageUrl || "/placeholder.svg"}
           alt={`${title} project screenshot`}
-          width={384}
-          height={216}
-          layout="responsive"
+          fill
           className="object-cover"
         />
       </CardContent>

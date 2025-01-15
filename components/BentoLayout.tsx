@@ -18,7 +18,7 @@ export default function BentoLayout() {
     <div className="grid grid-cols-6 gap-6 p-6 w-[1200px] grid-flow-row">
       <div className=" w-full col-span-2 md:col-span-4 row-span-2">
         <h1 className="text-7xl font-bold leading-snug">
-          Hey,
+          Salut,
           <br />
           Je suis Alex.
           <br />
@@ -48,7 +48,7 @@ export default function BentoLayout() {
           <CardDescription>Card Description</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-between items-center gap-3">
+          <div className="flex justify-around items-center gap-3 text-muted-foreground">
             <RiNextjsFill size={60} />
             <SiTypescript size={50} />
             <RiTailwindCssFill size={60} />
@@ -56,7 +56,7 @@ export default function BentoLayout() {
             <FaDocker size={60} />
           </div>
         </CardContent>
-        <CardFooter className="text-sm text-muted-foreground">
+        <CardFooter className="text-sm ">
           Principalement axé sur l&apos;écosystème JavaScript, mais toujours
           désireux d&apos;explorer et d&apos;apprendre de nouvelles
           technologies.
@@ -83,48 +83,14 @@ export default function BentoLayout() {
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
       ></ProjectCard>
-      <div className="border rounded-xl col-span-3 pb-10"><ContactForm /></div>
-      <Card>
+      <Card className="col-span-5">
         <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
+          <CardTitle>Me Contacter</CardTitle>
+          <CardDescription>Une question, un projet ? Je suis à votre disposition !</CardDescription>
         </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
+        <CardContent>
+          <ContactForm />
+        </CardContent>
       </Card>
       <Card>
         <CardHeader>

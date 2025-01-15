@@ -3,8 +3,8 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground py-8">
-      <div className="container mx-auto flex justify-between items-center">
+    <footer className="flex justify-center items-center p-8 border-t border-gray-700">
+      <div className="flex justify-between items-center w-full max-w-6xl">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Alexandre Bouillaguet. All Rights
           Reserved.
