@@ -2,6 +2,7 @@ import Image from "next/image"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -25,16 +26,17 @@ export default function ProjectCard({
   demoUrl,
 }: ProjectCardProps) {
   return (
-    <Card className="w-full mx-auto overflow-hidden col-span-2">
+    <Card className="w-full mx-auto overflow-hidden col-span-2 ">
       <CardHeader>
         <CardTitle className="font-bold">{title}</CardTitle>
+        <CardDescription className="text-sm text-muted-foreground">Projet de formation</CardDescription>
       </CardHeader>
-      <CardContent className="p-0 aspect-video relative">
+      <CardContent className="p-0 aspect-video relative overflow-hidden">
         <Image
           src={imageUrl || "/placeholder.svg"}
           alt={`${title} project screenshot`}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 hover:scale-110"
         />
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-4 p-4">

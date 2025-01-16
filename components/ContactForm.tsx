@@ -90,18 +90,18 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="h-32 border-gray-700"
+                className="h-80 border-gray-700"
                 
               />
             </div>
-            <Button className="w-20" type="submit" disabled={isSubmitting}>
+            <Button className="w-20 bg-green-400" type="submit" disabled={isSubmitting}>
               {isSubmitting ? "En cours..." : "Envoyer"}
             </Button>
           </div>
         </div>
       </form>
       {submitSuccess && (
-        <div className="mt-4 p-4 bg-green-100 text-green-700 rounded">
+        <div className="mt-4 p-4 bg-green-100 text-green-400 rounded">
           Merci pour votre message ! Je vous répondrai dès que possible.
         </div>
       )}

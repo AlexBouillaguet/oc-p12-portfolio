@@ -5,18 +5,18 @@ const Header = () => {
   return (
     <header className="flex justify-center items-center p-4 ">
       <div className="flex justify-between items-center w-full max-w-6xl">
-        <div className="text-xl font-bold">Alexandre Bouillaguet</div>
+        <Link href="/"><div className="text-xl font-bold">Alexandre Bouillaguet</div></Link>
   
-        <div className="flex justify-between items-center space-x-4">
-          <nav className="space-x-4">
+        <div className="flex justify-between items-center space-x-10">
+          <nav className="space-x-10">
             <Link
-              href="/projets"
+              href="/#projets"
               className="hover:text-muted-foreground transition-colors"
             >
               Projets
             </Link>
             <Link
-              href="/contact"
+              href="/#contact"
               className="hover:text-muted-foreground transition-colors"
             >
               Contact
