@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import Image from "next/image"
 import {
   Card,
@@ -16,6 +17,10 @@ interface ProjectCardProps {
   description: string
   githubUrl: string
   demoUrl: string
+  className?: string
+  id?: string
+  imagePosition?: string
+  imageClassName?: string
 }
 
 export default function ProjectCard({
@@ -24,19 +29,35 @@ export default function ProjectCard({
   description,
   githubUrl,
   demoUrl,
+  className,
+  id,
+  imagePosition,
+  imageClassName,
 }: ProjectCardProps) {
   return (
-    <Card className="w-full mx-auto overflow-hidden col-span-2 ">
-      <CardHeader>
+    <Card
+      id={id}
+      className={clsx(
+        "w-full mx-auto overflow-hidden col-span-4 flex flex-col",
+        className
+      )}
+    >
+      <CardHeader className="flex-shrink-0">
         <CardTitle className="font-bold">{title}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Projet de formation</CardDescription>
+        <CardDescription className="text-sm text-muted-foreground">
+          Projet de formation
+        </CardDescription>
       </CardHeader>
-      <CardContent className="p-0 aspect-video relative overflow-hidden">
+      <CardContent className="p-0 flex-grow relative overflow-hidden min-h-[200px]">
         <Image
           src={imageUrl || "/placeholder.svg"}
           alt={`${title} project screenshot`}
           fill
-          className="object-cover transition-transform duration-300 hover:scale-110"
+          style={{ objectPosition: imagePosition || "center" }}
+          className={clsx(
+            "object-cover transition-transform duration-300",
+            imageClassName || "hover:scale-90"
+          )}
         />
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-4 p-4">

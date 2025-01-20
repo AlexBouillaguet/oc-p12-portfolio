@@ -20,9 +20,9 @@ import ContactForm from "./ContactForm"
 
 export default function BentoLayout() {
   return (
-    <div className="grid grid-cols-6 gap-6 p-6 w-[1200px] grid-flow-row">
-      <div className=" w-full col-span-2 md:col-span-4 row-span-2">
-        <h1 className="text-7xl font-bold leading-snug mt-20">
+    <div className="grid grid-cols-12 gap-2 p-6 w-[1200px] grid-flow-row">
+      <div className=" w-full col-span-12 row-span-2">
+        <h1 className="text-7xl font-bold leading-snug mt-20 mb-20">
           Salut,
           <br />
           Je suis Alex.
@@ -33,7 +33,7 @@ export default function BentoLayout() {
           <br />
         </h1>
       </div>
-      <Card className="col-span-3 flex flex-col justify-between">
+      <Card className="col-span-6 flex flex-col justify-between">
         <CardHeader>
           <CardTitle>A propos</CardTitle>
           <CardDescription>
@@ -47,11 +47,11 @@ export default function BentoLayout() {
           besoins des utilisateurs.
         </CardContent>
       </Card>
-      <Card className="col-span-3">
+      <Card className="col-span-6">
         <CardHeader>
           <CardTitle>Compétences</CardTitle>
           <CardDescription>
-            Principalement axé sur l&apos;écosystème JavaScript
+            Principalement axé sur l&apos;écosystème JavaScript React
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -68,16 +68,18 @@ export default function BentoLayout() {
           nouvelles technologies.
         </CardFooter>
       </Card>
-      <div id="projets" className="w-full mx-auto overflow-hidden col-span-2 ">
-        <ProjectCard
-          title="Argent Bank"
-          imageUrl="/images/mockup1.png"
-          description="Description de mon projet"
-          githubUrl="https://github.com/votre-repo"
-          demoUrl="https://votre-demo.com"
-        ></ProjectCard>
-      </div>
       <ProjectCard
+        className="col-span-8 row-span-2"
+        title="Argent Bank"
+        imageUrl="/images/mockup1.png"
+        description="Description de mon projet"
+        githubUrl="https://github.com/votre-repo"
+        demoUrl="https://votre-demo.com"
+        id="projets"
+        imagePosition="-130px"
+      ></ProjectCard>
+      <ProjectCard
+        className="col-span-4"
         title="Kasa"
         imageUrl="/images/mockup2.png"
         description="Description de mon projet"
@@ -85,13 +87,15 @@ export default function BentoLayout() {
         demoUrl="https://votre-demo.com"
       ></ProjectCard>
       <ProjectCard
+        className=""
         title="OhMyFood"
         imageUrl="/images/mockup3.png"
         description="Description de mon projet"
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
+        imageClassName="scale-100"
       ></ProjectCard>
-      <Card id="contact" className="col-span-5 row-span-3">
+      <Card id="contact" className="col-span-12 row-span-3">
         <CardHeader>
           <CardTitle>Me Contacter</CardTitle>
           <CardDescription>
