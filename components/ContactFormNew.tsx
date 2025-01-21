@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { toast } from "sonner"
+import Turnstile from "react-turnstile"
 
 // Définition du schéma de validation
 const formSchema = z.object({
@@ -35,6 +36,7 @@ const formSchema = z.object({
 
 export function ContactFormNew() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,6 +51,11 @@ export function ContactFormNew() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!turnstileToken) {
+      toast.error("Veuillez valider le captcha")
+      return
+    }
+
     setIsSubmitting(true)
     try {
       const response = await fetch("/api/send", {
@@ -56,7 +63,10 @@ export function ContactFormNew() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          token: turnstileToken,
+        }),
       })
 
       if (!response.ok) {
@@ -64,6 +74,7 @@ export function ContactFormNew() {
       }
 
       form.reset()
+      setTurnstileToken(null)
       toast.success("Message envoyé avec succès !")
     } catch (error) {
       console.error("Erreur:", error)
@@ -119,6 +130,13 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+          <div className="flex justify-center mt-4">
+            <Turnstile
+              sitekey="0x4AAAAAAA543g1-UYN71kVE"
+              onVerify={(token) => setTurnstileToken(token)}
+              theme="light"
+            />
+          </div>
         </div>
 
         <div className="space-y-4">
