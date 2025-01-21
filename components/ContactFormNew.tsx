@@ -46,23 +46,27 @@ export function ContactFormNew() {
     },
     mode: "onTouched",
     reValidateMode: "onBlur",
-    shouldFocusError: true,
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     try {
-      // Simuler un appel API avec les valeurs
-      console.log("Envoi des données:", values)
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
 
-      // Réinitialiser le formulaire
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi du message")
+      }
+
       form.reset()
-
-      // Afficher le message de succès
       toast.success("Message envoyé avec succès !")
     } catch (error) {
-      console.error("Erreur lors de l'envoi:", error)
+      console.error("Erreur:", error)
       toast.error("Une erreur est survenue lors de l'envoi.")
     } finally {
       setIsSubmitting(false)
@@ -73,7 +77,7 @@ export function ContactFormNew() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-6 form-label-no-error"
+        className="grid grid-cols-2 gap-6"
       >
         <div className="space-y-4">
           <FormField
@@ -81,10 +85,10 @@ export function ContactFormNew() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Nom Prénom</FormLabel>
+                <FormLabel>Nom Prénom</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Votre nom et prénom"
+                    placeholder="John Doe"
                     {...field}
                     disabled={isSubmitting}
                   />
@@ -100,10 +104,10 @@ export function ContactFormNew() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Email</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="mail@example.com"
+                    placeholder="john@example.com"
                     type="email"
                     {...field}
                     disabled={isSubmitting}
@@ -116,13 +120,14 @@ export function ContactFormNew() {
             )}
           />
         </div>
+
         <div className="space-y-4">
           <FormField
             control={form.control}
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Objet</FormLabel>
+                <FormLabel>Objet</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Sujet de votre message"
@@ -141,7 +146,7 @@ export function ContactFormNew() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Message</FormLabel>
+                <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Votre message..."
