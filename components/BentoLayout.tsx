@@ -16,11 +16,11 @@ import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import { SiTypescript, SiGmail } from "react-icons/si"
 
 import ProjectCard from "./ui/project-card"
-import ContactForm from "./ContactForm"
+import { ContactFormNew } from "./ContactFormNew"
 
 export default function BentoLayout() {
   return (
-    <div className="grid grid-cols-12 gap-2 p-6 w-[1200px] grid-flow-row">
+    <div className="grid grid-cols-12 gap-8 p-6 w-[1200px] grid-flow-row">
       <div className=" w-full col-span-12 row-span-2">
         <h1 className="text-7xl font-bold leading-snug mt-20 mb-20">
           Salut,
@@ -69,17 +69,17 @@ export default function BentoLayout() {
         </CardFooter>
       </Card>
       <ProjectCard
-        className="col-span-8 row-span-2"
+        className="col-span-12"
         title="Argent Bank"
         imageUrl="/images/mockup1.png"
         description="Description de mon projet"
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
         id="projets"
-        imagePosition="-130px"
+        imagePosition=""
       ></ProjectCard>
       <ProjectCard
-        className="col-span-4"
+        className="col-span-12"
         title="Kasa"
         imageUrl="/images/mockup2.png"
         description="Description de mon projet"
@@ -87,7 +87,7 @@ export default function BentoLayout() {
         demoUrl="https://votre-demo.com"
       ></ProjectCard>
       <ProjectCard
-        className=""
+        className="col-span-12"
         title="OhMyFood"
         imageUrl="/images/mockup3.png"
         description="Description de mon projet"
@@ -103,7 +103,7 @@ export default function BentoLayout() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ContactForm />
+          <ContactFormNew />
         </CardContent>
       </Card>
       <Card className="aspect-square flex justify-center items-center">

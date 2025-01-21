@@ -48,7 +48,7 @@ export default function ProjectCard({
           Projet de formation
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-0 flex-grow relative overflow-hidden min-h-[200px]">
+      <CardContent className="p-0 aspect-video relative overflow-hidden ">
         <Image
           src={imageUrl || "/placeholder.svg"}
           alt={`${title} project screenshot`}
@@ -56,7 +56,7 @@ export default function ProjectCard({
           style={{ objectPosition: imagePosition || "center" }}
           className={clsx(
             "object-cover transition-transform duration-300",
-            imageClassName || "hover:scale-90"
+            imageClassName || "hover:scale-110"
           )}
         />
       </CardContent>
