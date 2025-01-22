@@ -130,16 +130,6 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
-          <div className="flex justify-center mt-4">
-            <Turnstile
-              sitekey="0x4AAAAAAA543g1-UYN71kVE"
-              onVerify={(token) => setTurnstileToken(token)}
-              theme="light"
-            />
-          </div>
-        </div>
-
-        <div className="space-y-4">
           <FormField
             control={form.control}
             name="subject"
@@ -159,6 +149,9 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+        </div>
+
+        <div className="space-y-6">
           <FormField
             control={form.control}
             name="message"
@@ -179,9 +172,17 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+          <div className="flex">
+            <Turnstile
+              sitekey="0x4AAAAAAA543g1-UYN71kVE"
+              onVerify={(token) => setTurnstileToken(token)}
+              theme="dark"
+              className="mt-"
+            />
+          </div>
           <Button
             type="submit"
-            className="w-full bg-green-400 hover:bg-green-500"
+            className=" bg-green-400 hover:bg-green-500"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Envoi en cours..." : "Envoyer"}

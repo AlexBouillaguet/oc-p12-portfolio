@@ -22,7 +22,7 @@ export default function BentoLayout() {
   return (
     <div className="grid grid-cols-12 gap-8 p-6 w-[1200px] grid-flow-row">
       <div className=" w-full col-span-12 row-span-2">
-        <h1 className="text-7xl font-bold leading-snug mt-20 mb-20">
+        <h1 className="text-7xl font-bold leading-snug mt-40 mb-40">
           Salut,
           <br />
           Je suis Alex.
@@ -73,6 +73,7 @@ export default function BentoLayout() {
         title="Argent Bank"
         imageUrl="/images/mockup1.png"
         description="Description de mon projet"
+        technologies={["React", "TypeScript", "Tailwind"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
         id="projets"
@@ -83,6 +84,7 @@ export default function BentoLayout() {
         title="Kasa"
         imageUrl="/images/mockup2.png"
         description="Description de mon projet"
+        technologies={["React", "TypeScript", "Tailwind"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
       ></ProjectCard>
@@ -91,13 +93,14 @@ export default function BentoLayout() {
         title="OhMyFood"
         imageUrl="/images/mockup3.png"
         description="Description de mon projet"
+        technologies={["React", "TypeScript", "Tailwind"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
         imageClassName="scale-100"
       ></ProjectCard>
       <Card id="contact" className="col-span-12 row-span-3">
         <CardHeader>
-          <CardTitle>Me Contacter</CardTitle>
+          <CardTitle>Me contacter</CardTitle>
           <CardDescription>
             Une question, un projet ? Je suis à votre disposition !
           </CardDescription>

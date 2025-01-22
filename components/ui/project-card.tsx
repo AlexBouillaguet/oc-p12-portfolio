@@ -21,6 +21,7 @@ interface ProjectCardProps {
   id?: string
   imagePosition?: string
   imageClassName?: string
+  technologies: string[]
 }
 
 export default function ProjectCard({
@@ -33,6 +34,7 @@ export default function ProjectCard({
   id,
   imagePosition,
   imageClassName,
+  technologies,
 }: ProjectCardProps) {
   return (
     <Card
@@ -60,33 +62,45 @@ export default function ProjectCard({
           )}
         />
       </CardContent>
-      <CardFooter className="flex flex-col items-start gap-4 p-4">
+      <CardFooter className="flex flex-col items-start gap-4 p-6">
         <p className="text-sm text-muted-foreground">{description}</p>
-        <div className="flex justify-between w-full">
-          <Button variant="outline" size="sm" asChild>
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <Github className="w-4 h-4" />
-              <span className="sr-only">GitHub repository</span>
-              <span aria-hidden="true">GitHub</span>
-            </a>
-          </Button>
-          <Button variant="outline" size="sm" asChild>
-            <a
-              href={demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span className="sr-only">Live demo</span>
-              <span aria-hidden="true">Live Demo</span>
-            </a>
-          </Button>
+        <div className="flex justify-between w-full items-center">
+          <div className="flex flex-wrap gap-2">
+            {technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 text-xs font-medium rounded-full bg-muted"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <Button variant="outline" size="sm" asChild>
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span className="sr-only">Live demo</span>
+                <span aria-hidden="true">Live Demo</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Github className="w-4 h-4" />
+                <span className="sr-only">GitHub repository</span>
+                <span aria-hidden="true">GitHub</span>
+              </a>
+            </Button>
+          </div>
         </div>
       </CardFooter>
     </Card>
