@@ -97,9 +97,9 @@ export default function BentoLayout() {
       <ProjectCard
         className="col-span-12"
         title="Argent Bank"
+        description="Application bancaire développée avec React et Redux, intégrant une API REST pour la gestion des transactions et l'authentification des utilisateurs. Interface responsive avec tableau de bord personnalisé et documentation Swagger pour les points d'accès API."
         imageUrl="/images/mockup1.png"
-        description="Description de mon projet"
-        technologies={["React", "TypeScript", "Tailwind"]}
+        technologies={["React", "Redux", "API REST"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
         id="projets"
@@ -108,21 +108,21 @@ export default function BentoLayout() {
       <ProjectCard
         className="col-span-6"
         title="Kasa"
-        imageUrl="/images/mockup2.png"
-        description="Description de mon projet"
-        technologies={["React", "TypeScript", "Tailwind"]}
+        description="Application de location immobilière développée avec React et Vite. Interface moderne avec animations CSS et SASS."
+        imageUrl="/images/kasa2.webp"
+        technologies={["React", "Vite", "SASS"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
       ></ProjectCard>
       <ProjectCard
         className="col-span-6"
         title="OhMyFood"
-        imageUrl="/images/mockup3.png"
-        description="Description de mon projet"
-        technologies={["React", "TypeScript", "Tailwind"]}
+        description="Site de réservation de restaurants conçu en mobile-first avec une approche moderne. Interface enrichie d'animations CSS avancées et structurée avec SASS."
+        imageUrl="/images/omf2.webp"
+        technologies={["HTML", "SASS"]}
         githubUrl="https://github.com/votre-repo"
         demoUrl="https://votre-demo.com"
-        imageClassName="scale-100"
+        imageClassName="hover:scale-110"
       ></ProjectCard>
       <Card id="contact" className="col-span-12 row-span-3">
         <CardHeader>
