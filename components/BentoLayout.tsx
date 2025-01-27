@@ -21,9 +21,9 @@ import { SkillIcon } from "./ui/skill-icon"
 
 export default function BentoLayout() {
   return (
-    <div className="grid grid-cols-12 gap-8 p-6 w-[1200px] grid-flow-row">
-      <div className=" col-span-6 flex flex-col justify-center">
-        <h1 className="text-7xl font-bold leading-snug ">
+    <div className="flex flex-col xl:grid xl:grid-cols-12 gap-8 p-6 xl:w-[1200px] xl:grid-flow-row">
+      <div className=" col-span-11 flex flex-col justify-center my-20 xl:my-40">
+        <h1 className="text-5xl md:text-7xl font-bold px-2">
           Salut,
           <br />
           Je suis Alex.
@@ -34,8 +34,7 @@ export default function BentoLayout() {
           <br />
         </h1>
       </div>
-      <div className="col-span-6"></div>
-      <Card className="col-span-6 flex flex-col row-start-2">
+      <Card className="col-span-6 flex flex-col">
         <CardHeader>
           <CardTitle>A propos</CardTitle>
           <CardDescription>
@@ -98,30 +97,28 @@ export default function BentoLayout() {
         className="col-span-12"
         title="Argent Bank"
         description="Application bancaire développée avec React et Redux, intégrant une API REST pour la gestion des transactions et l'authentification des utilisateurs. Interface responsive avec tableau de bord personnalisé et documentation Swagger pour les points d'accès API."
-        imageUrl="/images/mockup1.png"
-        technologies={["React", "Redux", "API REST"]}
-        githubUrl="https://github.com/votre-repo"
-        demoUrl="https://votre-demo.com"
+        imageUrl="/images/mockup1.webp"
+        technologies={["React", "Redux", "API Rest"]}
+        githubUrl="https://github.com/AlexBouillaguet/ArgentBank-Frontend"
         id="projets"
         imagePosition=""
       ></ProjectCard>
       <ProjectCard
         className="col-span-6"
         title="Kasa"
-        description="Application de location immobilière développée avec React et Vite. Interface moderne avec animations CSS et SASS."
+        description="Application de location immobilière développée avec React et Vite. Interface moderne avec animations CSS et Sass."
         imageUrl="/images/kasa2.webp"
-        technologies={["React", "Vite", "SASS"]}
-        githubUrl="https://github.com/votre-repo"
-        demoUrl="https://votre-demo.com"
+        technologies={["React", "Vite", "Sass"]}
+        githubUrl="https://github.com/AlexBouillaguet/oc-p7-kasa"
       ></ProjectCard>
       <ProjectCard
         className="col-span-6"
         title="OhMyFood"
-        description="Site de réservation de restaurants conçu en mobile-first avec une approche moderne. Interface enrichie d'animations CSS avancées et structurée avec SASS."
+        description="Site de réservation de restaurants conçu en mobile-first avec une approche moderne. Interface enrichie d'animations CSS avancées et structurée avec Sass."
         imageUrl="/images/omf2.webp"
-        technologies={["HTML", "SASS"]}
-        githubUrl="https://github.com/votre-repo"
-        demoUrl="https://votre-demo.com"
+        technologies={["HTML", "Sass"]}
+        githubUrl="https://github.com/AlexBouillaguet/oc-p4-oh-my-food"
+        demoUrl="https://alexbouillaguet.github.io/oc-p4-oh-my-food/"
         imageClassName="hover:scale-110"
       ></ProjectCard>
       <Card id="contact" className="col-span-12 row-span-3">

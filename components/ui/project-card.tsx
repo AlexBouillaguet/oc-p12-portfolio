@@ -16,7 +16,7 @@ interface ProjectCardProps {
   imageUrl: string
   description: string
   githubUrl: string
-  demoUrl: string
+  demoUrl?: string
   className?: string
   id?: string
   imagePosition?: string
@@ -51,16 +51,18 @@ export default function ProjectCard({
         </CardDescription>
       </CardHeader>
       <CardContent className="p-0 aspect-video relative overflow-hidden ">
-        <Image
-          src={imageUrl || "/placeholder.svg"}
-          alt={`${title} project screenshot`}
-          fill
-          style={{ objectPosition: imagePosition || "center" }}
-          className={clsx(
-            "object-cover transition-transform duration-300",
-            imageClassName || "hover:scale-110"
-          )}
-        />
+        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+          <Image
+            src={imageUrl || "/placeholder.svg"}
+            alt={`${title} project screenshot`}
+            fill
+            style={{ objectPosition: imagePosition || "center" }}
+            className={clsx(
+              "object-cover transition-transform duration-300",
+              imageClassName || "hover:scale-110"
+            )}
+          />
+        </a >
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-4 p-6">
         <p className="text-sm text-muted-foreground">{description}</p>
@@ -89,20 +91,21 @@ export default function ProjectCard({
                 <span aria-hidden="true">GitHub</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a
-                href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <ExternalLink className="w-4 h-4" />
-                <span className="sr-only">Live demo</span>
-                <span aria-hidden="true">Live Demo</span>
-              </a>
-            </Button>
+            {demoUrl && (
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href={demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span className="sr-only">Live demo</span>
+                  <span aria-hidden="true">Live Demo</span>
+                </a>
+              </Button>
+            )}
           </div>
-
         </div>
       </CardFooter>
     </Card>

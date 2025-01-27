@@ -88,7 +88,7 @@ export function ContactFormNew() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-6"
+        className="flex flex-col lg:grid lg:grid-cols-2 gap-6"
       >
         <div className="space-y-4">
           <FormField
@@ -161,7 +161,7 @@ export function ContactFormNew() {
                 <FormControl>
                   <Textarea
                     placeholder="Votre message..."
-                    className="min-h-[150px]"
+                    className="min-h-[212px]"
                     {...field}
                     disabled={isSubmitting}
                   />
@@ -172,6 +172,13 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+          <Button
+            type="submit"
+            className=" bg-green-400 hover:bg-green-500"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+          </Button>
           <div className="flex">
             <Turnstile
               sitekey="0x4AAAAAAA543g1-UYN71kVE"
@@ -180,13 +187,6 @@ export function ContactFormNew() {
               className="mt-"
             />
           </div>
-          <Button
-            type="submit"
-            className=" bg-green-400 hover:bg-green-500"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Envoi en cours..." : "Envoyer"}
-          </Button>
         </div>
       </form>
     </Form>
