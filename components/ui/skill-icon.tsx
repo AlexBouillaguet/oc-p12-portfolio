@@ -5,7 +5,7 @@ interface SkillIconProps {
   className?: string
 }
 
-export function SkillIcon({ icon, className }: SkillIconProps) {
+export function SkillIcon({ icon, className}: SkillIconProps) {
   return (
     <div
       className={clsx(

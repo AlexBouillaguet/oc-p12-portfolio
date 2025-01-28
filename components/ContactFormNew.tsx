@@ -16,9 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { toast } from "sonner"
-// import Turnstile from "react-turnstile"
 
-// Définition du schéma de validation
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Le nom doit contenir au moins 2 caractères.",
@@ -36,7 +34,6 @@ const formSchema = z.object({
 
 export function ContactFormNew() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,11 +46,6 @@ export function ContactFormNew() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (!turnstileToken) {
-      toast.error("Veuillez valider le captcha")
-      return
-    }
-
     setIsSubmitting(true)
     try {
       const response = await fetch("/api/send", {
@@ -61,10 +53,7 @@ export function ContactFormNew() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...values,
-          token: turnstileToken,
-        }),
+        body: JSON.stringify(values),
       })
 
       if (!response.ok) {
@@ -72,7 +61,6 @@ export function ContactFormNew() {
       }
 
       form.reset()
-      setTurnstileToken(null)
       toast.success("Message envoyé avec succès !")
     } catch (error) {
       console.error("Erreur:", error)
@@ -99,6 +87,7 @@ export function ContactFormNew() {
                   <Input
                     placeholder="John Doe"
                     {...field}
+                    disabled={isSubmitting}
                     autoComplete="name"
                   />
                 </FormControl>
@@ -184,18 +173,11 @@ export function ContactFormNew() {
           />
           <Button
             type="submit"
-            className=" bg-green-400 hover:bg-green-500"
+            className="bg-green-400 hover:bg-green-500"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Envoi en cours..." : "Envoyer"}
           </Button>
-          <div className="flex">
-            {/* <Turnstile
-              sitekey="0x4AAAAAAA543g1-UYN71kVE"
-              onVerify={(token) => setTurnstileToken(token)}
-              theme="dark"
-            /> */}
-          </div>
         </div>
       </form>
     </Form>
