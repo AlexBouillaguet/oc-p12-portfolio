@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { toast } from "sonner"
-import Turnstile from "react-turnstile"
+// import Turnstile from "react-turnstile"
 
 // Définition du schéma de validation
 const formSchema = z.object({
@@ -46,8 +46,6 @@ export function ContactFormNew() {
       subject: "",
       message: "",
     },
-    mode: "onTouched",
-    reValidateMode: "onBlur",
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -101,11 +99,13 @@ export function ContactFormNew() {
                   <Input
                     placeholder="John Doe"
                     {...field}
-                    disabled={isSubmitting}
+                    autoComplete="name"
                   />
                 </FormControl>
-                {field.value && form.formState.touchedFields.name && (
-                  <FormMessage />
+                {form.formState.isSubmitted && form.formState.errors.name && (
+                  <FormMessage>
+                    {form.formState.errors.name.message}
+                  </FormMessage>
                 )}
               </FormItem>
             )}
@@ -122,10 +122,13 @@ export function ContactFormNew() {
                     type="email"
                     {...field}
                     disabled={isSubmitting}
+                    autoComplete="email"
                   />
                 </FormControl>
-                {field.value && form.formState.touchedFields.email && (
-                  <FormMessage />
+                {form.formState.isSubmitted && form.formState.errors.email && (
+                  <FormMessage>
+                    {form.formState.errors.email.message}
+                  </FormMessage>
                 )}
               </FormItem>
             )}
@@ -141,11 +144,15 @@ export function ContactFormNew() {
                     placeholder="Sujet de votre message"
                     {...field}
                     disabled={isSubmitting}
+                    autoComplete="off"
                   />
                 </FormControl>
-                {field.value && form.formState.touchedFields.subject && (
-                  <FormMessage />
-                )}
+                {form.formState.isSubmitted &&
+                  form.formState.errors.subject && (
+                    <FormMessage>
+                      {form.formState.errors.subject.message}
+                    </FormMessage>
+                  )}
               </FormItem>
             )}
           />
@@ -166,9 +173,12 @@ export function ContactFormNew() {
                     disabled={isSubmitting}
                   />
                 </FormControl>
-                {field.value && form.formState.touchedFields.message && (
-                  <FormMessage />
-                )}
+                {form.formState.isSubmitted &&
+                  form.formState.errors.message && (
+                    <FormMessage>
+                      {form.formState.errors.message.message}
+                    </FormMessage>
+                  )}
               </FormItem>
             )}
           />
@@ -180,12 +190,11 @@ export function ContactFormNew() {
             {isSubmitting ? "Envoi en cours..." : "Envoyer"}
           </Button>
           <div className="flex">
-            <Turnstile
+            {/* <Turnstile
               sitekey="0x4AAAAAAA543g1-UYN71kVE"
               onVerify={(token) => setTurnstileToken(token)}
               theme="dark"
-              className="mt-"
-            />
+            /> */}
           </div>
         </div>
       </form>

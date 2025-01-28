@@ -101,7 +101,6 @@ export default function BentoLayout() {
         technologies={["React", "Redux", "API Rest"]}
         githubUrl="https://github.com/AlexBouillaguet/ArgentBank-Frontend"
         id="projets"
-        imagePosition=""
       ></ProjectCard>
       <ProjectCard
         className="col-span-6"
@@ -119,7 +118,6 @@ export default function BentoLayout() {
         technologies={["HTML", "Sass"]}
         githubUrl="https://github.com/AlexBouillaguet/oc-p4-oh-my-food"
         demoUrl="https://alexbouillaguet.github.io/oc-p4-oh-my-food/"
-        imageClassName="hover:scale-110"
       ></ProjectCard>
       <Card id="contact" className="col-span-12 row-span-3">
         <CardHeader>

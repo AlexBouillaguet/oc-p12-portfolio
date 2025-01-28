@@ -19,8 +19,6 @@ interface ProjectCardProps {
   demoUrl?: string
   className?: string
   id?: string
-  imagePosition?: string
-  imageClassName?: string
   technologies: string[]
 }
 
@@ -32,8 +30,6 @@ export default function ProjectCard({
   demoUrl,
   className,
   id,
-  imagePosition,
-  imageClassName,
   technologies,
 }: ProjectCardProps) {
   return (
@@ -50,19 +46,24 @@ export default function ProjectCard({
           Projet de formation
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-0 aspect-video relative overflow-hidden ">
-        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+      <CardContent className="p-0 aspect-video overflow-hidden ">
+        <a
+          className="relative block h-full"
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src={imageUrl || "/placeholder.svg"}
             alt={`${title} project screenshot`}
             fill
-            style={{ objectPosition: imagePosition || "center" }}
+            loading="lazy"
+            sizes= "(max-width: 1200px) 100vw"
             className={clsx(
-              "object-cover transition-transform duration-300",
-              imageClassName || "hover:scale-110"
+              "object-cover transition-transform duration-300 hover:scale-110"
             )}
           />
-        </a >
+        </a>
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-4 p-6">
         <p className="text-sm text-muted-foreground">{description}</p>

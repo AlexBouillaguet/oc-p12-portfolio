@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ModeToggle } from "./ModeToggle"
 
 const Header = () => {
   return (
@@ -22,7 +21,6 @@ const Header = () => {
               Contact
             </Link>
           </nav>
-          <ModeToggle />
         </div>
       </div>
     </header>

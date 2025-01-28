@@ -3,7 +3,6 @@ import localFont from "next/font/local"
 import "./globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner"
 
 const geistSans = localFont({
@@ -29,19 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
         <Toaster position="top-center" />
       </body>
     </html>

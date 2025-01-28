@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     console.log("Turnstile vérifié, envoi email...")
     const data = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: ["alexandre.bouillaguet@gmail.com"], // Assurez-vous que c'est le bon email
+      to: ["alexandre.bouillaguet@gmail.com"],
       subject: `Message Portfolio: ${subject}`,
       html: `
         <h2>Nouveau message de votre portfolio</h2>
