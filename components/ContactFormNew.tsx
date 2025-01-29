@@ -173,7 +173,7 @@ export function ContactFormNew() {
           />
           <Button
             type="submit"
-            className="bg-green-400 hover:bg-green-500"
+            className="text-secondary hover:bg-green-500"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Envoi en cours..." : "Envoyer"}

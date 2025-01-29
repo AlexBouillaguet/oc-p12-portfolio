@@ -8,7 +8,7 @@ const Header = () => {
           <div>Alexandre Bouillaguet</div>
         </Link>
 
-        <nav className="space-x-4 md:space-x-10">
+        <nav className="space-x-4 md:space-x-10 ml-10">
           <Link
             href="/#projets"
             className="hover:text-muted-foreground transition-colors"

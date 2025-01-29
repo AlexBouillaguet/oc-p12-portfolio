@@ -58,7 +58,7 @@ export default function ProjectCard({
             alt={`${title} project screenshot`}
             fill
             loading="lazy"
-            sizes= "(max-width: 1200px) 100vw"
+            sizes="(max-width: 1200px) 100vw"
             className={clsx(
               "object-cover transition-transform duration-300 hover:scale-110"
             )}
@@ -86,10 +86,11 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
+                aria-label="Github"
               >
                 <Github className="w-4 h-4" />
                 <span className="sr-only">GitHub repository</span>
-                <span aria-hidden="true">GitHub</span>
+                <span aria-hidden="false">GitHub</span>
               </a>
             </Button>
             {demoUrl && (
@@ -99,10 +100,11 @@ export default function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
+                  aria-label="Live demo"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span className="sr-only">Live demo</span>
-                  <span aria-hidden="true">Live Demo</span>
+                  <span aria-hidden="false">Live Demo</span>
                 </a>
               </Button>
             )}

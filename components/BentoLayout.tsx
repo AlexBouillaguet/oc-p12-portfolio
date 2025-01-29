@@ -28,14 +28,14 @@ export default function BentoLayout() {
           <br />
           Je suis Alex.
           <br />
-          <span className="uppercase text-green-400">Front-End</span>
+          <span className="uppercase text-secondary">Front-End</span>
           <br />
-          <span className="uppercase text-green-400">Développeur.</span>
+          <span className="uppercase text-secondary">Développeur.</span>
           <br />
         </h1>
       </div>
       <div className="col-span-6 flex flex-col justify-center items-center my-20">
-        <SiBento className="text-green-400 text-[180px] md:text-[250px]" />
+        <SiBento className="text-secondary text-[180px] md:text-[250px]" />
       </div>
       <Card className="col-span-6 flex flex-col">
         <CardHeader>
@@ -55,6 +55,7 @@ export default function BentoLayout() {
             href="https://github.com/alexbouillaguet"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Github"
           >
             <FaGithub
               className="transition-transform duration-300 hover:scale-[1.1]"
@@ -65,13 +66,14 @@ export default function BentoLayout() {
             href="https://www.linkedin.com/in/alexandre-bouillaguet-421b07349"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <FaLinkedin
               className="transition-transform duration-300 hover:scale-[1.1]"
               size={20}
             />
           </a>
-          <a href="#contact">
+          <a href="#contact" aria-label="Contact">
             <SiGmail
               className="transition-transform duration-300 hover:scale-[1.1]"
               size={20}
@@ -88,11 +90,17 @@ export default function BentoLayout() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center md:justify-around items-center gap-6 ">
-            <SkillIcon icon={<RiNextjsLine size={80} />} />
-            <SkillIcon icon={<SiTypescript size={40} />} />
-            <SkillIcon icon={<RiTailwindCssFill size={60} />} />
-            <SkillIcon icon={<FaWordpressSimple size={58} />} />
-            <SkillIcon icon={<FaDocker size={60} />} />
+            <SkillIcon icon={<RiNextjsLine size={80} aria-label="Nextjs" />} />
+            <SkillIcon
+              icon={<SiTypescript size={40} aria-label="Typescript" />}
+            />
+            <SkillIcon
+              icon={<RiTailwindCssFill size={60} aria-label="Tailwind" />}
+            />
+            <SkillIcon
+              icon={<FaWordpressSimple size={58} aria-label="Wordpress" />}
+            />
+            <SkillIcon icon={<FaDocker size={60} aria-label="Docker" />} />
           </div>
         </CardContent>
         <CardFooter className="text-sm text-muted-foreground">
