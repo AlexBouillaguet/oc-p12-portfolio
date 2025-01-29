@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 
+// Définition des propriétés du composant ProjectCard
 interface ProjectCardProps {
   title: string
   imageUrl: string
@@ -22,6 +23,7 @@ interface ProjectCardProps {
   technologies: string[]
 }
 
+// Composant ProjectCard
 export default function ProjectCard({
   title,
   imageUrl,

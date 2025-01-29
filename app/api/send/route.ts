@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
+// Initialisation de l'instance Resend avec la clé API
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
     const { name, email, subject, message } = await request.json()
 
+    // Envoi de l'email via l'API Resend
     const data = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: ["alexandre.bouillaguet@gmail.com"],

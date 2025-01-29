@@ -17,6 +17,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { toast } from "sonner"
 
+// Schéma de validation du formulaire avec Zod
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Le nom doit contenir au moins 2 caractères.",
@@ -35,6 +36,7 @@ const formSchema = z.object({
 export function ContactFormNew() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // Initialisation du formulaire avec react-hook-form et Zod
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,6 +47,7 @@ export function ContactFormNew() {
     },
   })
 
+  // Fonction de soumission du formulaire
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     try {
@@ -77,6 +80,7 @@ export function ContactFormNew() {
         className="flex flex-col lg:grid lg:grid-cols-2 gap-6"
       >
         <div className="space-y-4">
+          {/* Champ de formulaire pour le nom */}
           <FormField
             control={form.control}
             name="name"
@@ -99,6 +103,7 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+          {/* Champ de formulaire pour l'email */}
           <FormField
             control={form.control}
             name="email"
@@ -122,6 +127,7 @@ export function ContactFormNew() {
               </FormItem>
             )}
           />
+          {/* Champ de formulaire pour l'objet */}
           <FormField
             control={form.control}
             name="subject"
@@ -148,6 +154,7 @@ export function ContactFormNew() {
         </div>
 
         <div className="space-y-6">
+          {/* Champ de formulaire pour le message */}
           <FormField
             control={form.control}
             name="message"

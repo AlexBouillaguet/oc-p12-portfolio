@@ -14,7 +14,6 @@ import {
 } from "react-icons/fa"
 import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import { SiTypescript, SiGmail, SiBento } from "react-icons/si"
-// import { BiCodeAlt } from "react-icons/bi"
 import ProjectCard from "./ui/project-card"
 import { ContactFormNew } from "./ContactFormNew"
 import { SkillIcon } from "./ui/skill-icon"
@@ -22,6 +21,7 @@ import { SkillIcon } from "./ui/skill-icon"
 export default function BentoLayout() {
   return (
     <div className="flex flex-col xl:grid xl:grid-cols-12 gap-8 p-6 w-[630px] xl:w-[1200px] xl:grid-flow-row">
+      {/* Titre */}
       <div className=" col-span-6 flex flex-col justify-center items-center mt-20 xl:my-60">
         <h1 className="text-5xl md:text-7xl font-bold px-2">
           Salut,
@@ -34,9 +34,11 @@ export default function BentoLayout() {
           <br />
         </h1>
       </div>
+      {/* Logo */}
       <div className="col-span-6 flex flex-col justify-center items-center my-20">
         <SiBento className="text-secondary text-[180px] md:text-[250px]" />
       </div>
+      {/* Card à propos */}
       <Card className="col-span-6 flex flex-col">
         <CardHeader>
           <CardTitle>A propos</CardTitle>
@@ -81,6 +83,7 @@ export default function BentoLayout() {
           </a>
         </CardFooter>
       </Card>
+      {/* Card compétences */}
       <Card className="col-span-6">
         <CardHeader>
           <CardTitle>Compétences</CardTitle>
@@ -108,6 +111,7 @@ export default function BentoLayout() {
           nouvelles technologies.
         </CardFooter>
       </Card>
+      {/* Card projets */}
       <ProjectCard
         className="col-span-12"
         title="Argent Bank"
@@ -134,6 +138,7 @@ export default function BentoLayout() {
         githubUrl="https://github.com/AlexBouillaguet/oc-p4-oh-my-food"
         demoUrl="https://alexbouillaguet.github.io/oc-p4-oh-my-food/"
       ></ProjectCard>
+      {/* Card contact */}
       <Card id="contact" className="col-span-12 row-span-3">
         <CardHeader>
           <CardTitle>Me contacter</CardTitle>
