@@ -93,17 +93,17 @@ export default function BentoLayout() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center md:justify-around items-center gap-6 ">
-            <SkillIcon icon={<RiNextjsLine size={80} aria-label="Nextjs" />} />
+            <SkillIcon icon={<RiNextjsLine size={80} aria-label="Nextjs" title="Nextjs" />} />
             <SkillIcon
-              icon={<SiTypescript size={40} aria-label="Typescript" />}
+              icon={<SiTypescript size={40} aria-label="Typescript" title="Typescript"/>}
             />
             <SkillIcon
-              icon={<RiTailwindCssFill size={60} aria-label="Tailwind" />}
+              icon={<RiTailwindCssFill size={60} aria-label="Tailwind" title="Tailwind CSS" />}
             />
             <SkillIcon
-              icon={<FaWordpressSimple size={58} aria-label="Wordpress" />}
+              icon={<FaWordpressSimple size={58} aria-label="Wordpress" title="Wordpress" />}
             />
-            <SkillIcon icon={<FaDocker size={60} aria-label="Docker" />} />
+            <SkillIcon icon={<FaDocker size={60} aria-label="Docker" title="Docker" />} />
           </div>
         </CardContent>
         <CardFooter className="text-sm text-muted-foreground">
