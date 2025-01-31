@@ -9,7 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
 
 // Définition des propriétés du composant ProjectCard
 interface ProjectCardProps {
@@ -90,7 +91,7 @@ export default function ProjectCard({
                 className="flex items-center gap-2"
                 aria-label="Github"
               >
-                <Github className="w-4 h-4" />
+                <FaGithub className="w-4 h-4" />
                 <span className="sr-only">GitHub repository</span>
                 <span aria-hidden="false">GitHub</span>
               </a>
